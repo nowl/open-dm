@@ -1,6 +1,8 @@
 bin_PROGRAMS = open-dungeons
 
 open_dungeons_SOURCES = \
+	SlabRenderer.cpp \
+	StepCamera.cpp \
 	test.cpp
 
 open_dungeons_CXXFLAGS = @SDL_CFLAGS@ -I../../black/black/include 

@@ -47,7 +47,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_open_dungeons_OBJECTS = open_dungeons-test.$(OBJEXT)
+am_open_dungeons_OBJECTS = open_dungeons-SlabRenderer.$(OBJEXT) \
+	open_dungeons-StepCamera.$(OBJEXT) \
+	open_dungeons-test.$(OBJEXT)
 open_dungeons_OBJECTS = $(am_open_dungeons_OBJECTS)
 open_dungeons_LDADD = $(LDADD)
 open_dungeons_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -197,6 +199,8 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 open_dungeons_SOURCES = \
+	SlabRenderer.cpp \
+	StepCamera.cpp \
 	test.cpp
 
 open_dungeons_CXXFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -I../../black/black/include 
@@ -288,6 +292,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/open_dungeons-SlabRenderer.Po
+include ./$(DEPDIR)/open_dungeons-StepCamera.Po
 include ./$(DEPDIR)/open_dungeons-test.Po
 
 .cpp.o:
@@ -310,6 +316,34 @@ include ./$(DEPDIR)/open_dungeons-test.Po
 #	source='$<' object='$@' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(LTCXXCOMPILE) -c -o $@ $<
+
+open_dungeons-SlabRenderer.o: SlabRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-SlabRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-SlabRenderer.Tpo -c -o open_dungeons-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-SlabRenderer.Tpo $(DEPDIR)/open_dungeons-SlabRenderer.Po
+#	source='SlabRenderer.cpp' object='open_dungeons-SlabRenderer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
+
+open_dungeons-SlabRenderer.obj: SlabRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-SlabRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-SlabRenderer.Tpo -c -o open_dungeons-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-SlabRenderer.Tpo $(DEPDIR)/open_dungeons-SlabRenderer.Po
+#	source='SlabRenderer.cpp' object='open_dungeons-SlabRenderer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
+
+open_dungeons-StepCamera.o: StepCamera.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-StepCamera.o -MD -MP -MF $(DEPDIR)/open_dungeons-StepCamera.Tpo -c -o open_dungeons-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-StepCamera.Tpo $(DEPDIR)/open_dungeons-StepCamera.Po
+#	source='StepCamera.cpp' object='open_dungeons-StepCamera.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
+
+open_dungeons-StepCamera.obj: StepCamera.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-StepCamera.obj -MD -MP -MF $(DEPDIR)/open_dungeons-StepCamera.Tpo -c -o open_dungeons-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-StepCamera.Tpo $(DEPDIR)/open_dungeons-StepCamera.Po
+#	source='StepCamera.cpp' object='open_dungeons-StepCamera.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
 
 open_dungeons-test.o: test.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-test.o -MD -MP -MF $(DEPDIR)/open_dungeons-test.Tpo -c -o open_dungeons-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
