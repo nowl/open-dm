@@ -26,8 +26,13 @@ StepCamera::update(GameObject *obj, unsigned int tick)
 {
     //printf("(%f,%f,%f)\n", x, y, z);
 
-    //x = (dest_x-x)*speed;
-    //y = (dest_y-y)*speed;
+    if(abs(dest_x-x) <= speed)
+        x = dest_x;
+    if(dest_x != x)
+        if(dest_x > x)
+            x += speed;
+        else
+            x -= speed;
 
     if(abs(dest_z-z) <= speed)
         z = dest_z;
@@ -150,10 +155,38 @@ StepCamera::receive(const Message& message)
                 }
                 return true;
             case SDLK_UP:
-                //setVelocity(0, -1, 0);
+                switch(facing)
+                {
+                case NORTH:
+                    setDest(0, 1);
+                    break;
+                case WEST:
+                    setDest(1, 0);
+                    break;
+                case SOUTH:
+                    setDest(0, -1);
+                    break;
+                case EAST:
+                    setDest(-1, 0);
+                    break;
+                }
                 return true;
             case SDLK_DOWN:
-                //setVelocity(0, 1, 0);
+                switch(facing)
+                {
+                case NORTH:
+                    setDest(0, -1);
+                    break;
+                case WEST:
+                    setDest(-1, 0);
+                    break;
+                case SOUTH:
+                    setDest(0, 1);
+                    break;
+                case EAST:
+                    setDest(1, 0);
+                    break;
+                }
                 return true;
             case SDLK_LEFT:
                 switch(facing)
@@ -171,12 +204,6 @@ StepCamera::receive(const Message& message)
                     dest_facing = NORTH;
                     break;
                 }
-                return true;
-            case SDLK_a:
-                setDest(0, 1);
-                return true;
-            case SDLK_z:
-                setDest(0, -1);
                 return true;
             }
         }

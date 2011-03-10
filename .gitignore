@@ -1,0 +1,13 @@
+*~
+autom4te.cache
+*.m4
+config.*
+*.in
+install-sh
+libtool
+ltmain.sh
+missing
+depcomp
+.deps
+.libs
+*.o

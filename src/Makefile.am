@@ -2,6 +2,7 @@ bin_PROGRAMS = open-dungeons
 
 open_dungeons_SOURCES = \
 	SlabRenderer.cpp \
+	BlockRenderer.cpp \
 	StepCamera.cpp \
 	test.cpp
 

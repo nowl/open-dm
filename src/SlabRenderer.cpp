@@ -1,8 +1,8 @@
 #include "SlabRenderer.h"
 
-SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size)
+SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size, std::string textureFile)
     : x(x), y(y), z(z), size(size), facing_player(facing_player),
-      texture("media/wall1.tif")
+      texture(textureFile.c_str())
 {}
 
 void

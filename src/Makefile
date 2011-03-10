@@ -48,6 +48,7 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_open_dungeons_OBJECTS = open_dungeons-SlabRenderer.$(OBJEXT) \
+	open_dungeons-BlockRenderer.$(OBJEXT) \
 	open_dungeons-StepCamera.$(OBJEXT) \
 	open_dungeons-test.$(OBJEXT)
 open_dungeons_OBJECTS = $(am_open_dungeons_OBJECTS)
@@ -200,6 +201,7 @@ top_builddir = ..
 top_srcdir = ..
 open_dungeons_SOURCES = \
 	SlabRenderer.cpp \
+	BlockRenderer.cpp \
 	StepCamera.cpp \
 	test.cpp
 
@@ -292,6 +294,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/open_dungeons-BlockRenderer.Po
 include ./$(DEPDIR)/open_dungeons-SlabRenderer.Po
 include ./$(DEPDIR)/open_dungeons-StepCamera.Po
 include ./$(DEPDIR)/open_dungeons-test.Po
@@ -330,6 +333,20 @@ open_dungeons-SlabRenderer.obj: SlabRenderer.cpp
 #	source='SlabRenderer.cpp' object='open_dungeons-SlabRenderer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
+
+open_dungeons-BlockRenderer.o: BlockRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-BlockRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-BlockRenderer.Tpo -c -o open_dungeons-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-BlockRenderer.Tpo $(DEPDIR)/open_dungeons-BlockRenderer.Po
+#	source='BlockRenderer.cpp' object='open_dungeons-BlockRenderer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
+
+open_dungeons-BlockRenderer.obj: BlockRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-BlockRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-BlockRenderer.Tpo -c -o open_dungeons-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-BlockRenderer.Tpo $(DEPDIR)/open_dungeons-BlockRenderer.Po
+#	source='BlockRenderer.cpp' object='open_dungeons-BlockRenderer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
 
 open_dungeons-StepCamera.o: StepCamera.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-StepCamera.o -MD -MP -MF $(DEPDIR)/open_dungeons-StepCamera.Tpo -c -o open_dungeons-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp

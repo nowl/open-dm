@@ -6,7 +6,7 @@
 class SlabRenderer : public IRenderable
 {
 public:
-    SlabRenderer(float x, float y, float z, bool facing_player, float size);
+    SlabRenderer(float x, float y, float z, bool facing_player, float size, std::string textureFile);
     
     virtual void Render(GraphicsContext &context, float interpolation, void *data);
     
