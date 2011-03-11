@@ -137,7 +137,7 @@ StepCamera::receive(const Message& message)
             case SDLK_ESCAPE:
                 BlackEngine::get()->IsRunning = false;
                 return true;
-            case SDLK_RIGHT:
+            case SDLK_KP6:
                 switch(facing)
                 {
                 case NORTH:
@@ -154,7 +154,7 @@ StepCamera::receive(const Message& message)
                     break;
                 }
                 return true;
-            case SDLK_UP:
+            case SDLK_KP5:
                 switch(facing)
                 {
                 case NORTH:
@@ -171,7 +171,7 @@ StepCamera::receive(const Message& message)
                     break;
                 }
                 return true;
-            case SDLK_DOWN:
+            case SDLK_KP2:
                 switch(facing)
                 {
                 case NORTH:
@@ -188,7 +188,7 @@ StepCamera::receive(const Message& message)
                     break;
                 }
                 return true;
-            case SDLK_LEFT:
+            case SDLK_KP4:
                 switch(facing)
                 {
                 case NORTH:
@@ -202,6 +202,40 @@ StepCamera::receive(const Message& message)
                     break;
                 case EAST:
                     dest_facing = NORTH;
+                    break;
+                }
+                return true;
+            case SDLK_KP1:
+                switch(facing)
+                {
+                case NORTH:
+                    setDest(1, 0);
+                    break;
+                case WEST:
+                    setDest(0, -1);
+                    break;
+                case SOUTH:
+                    setDest(-1, 0);
+                    break;
+                case EAST:
+                    setDest(0, 1);
+                    break;
+                }
+                return true;
+            case SDLK_KP3:
+                switch(facing)
+                {
+                case NORTH:
+                    setDest(-1, 0);
+                    break;
+                case WEST:
+                    setDest(0, 1);
+                    break;
+                case SOUTH:
+                    setDest(1, 0);
+                    break;
+                case EAST:
+                    setDest(0, -1);
                     break;
                 }
                 return true;

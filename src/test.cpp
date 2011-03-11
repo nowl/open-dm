@@ -6,6 +6,7 @@
 
 #include "BlockRenderer.h"
 #include "StepCamera.h"
+#include "PlaneRenderer.h"
 
 using namespace std;
 
@@ -42,14 +43,19 @@ int main(int argc, char *argv[])
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
 
     BlockRenderer blockRenderer1(0, 0, "media/wall1.tif");
-    //BlockRenderer blockRenderer2(1, 0, "media/wall1.tif");
+    BlockRenderer blockRenderer2(1, 0, "media/wall1.tif");
     //BlockRenderer blockRenderer3(2, 0, "media/wall1.tif");
     //BlockRenderer blockRenderer4(3, 0, "media/wall1.tif");
 
     FooObject foo1("foo1"); foo1.setRenderer(&blockRenderer1);
-    //FooObject foo2("foo2"); foo1.setRenderer(&blockRenderer2);
+    FooObject foo2("foo2"); foo2.setRenderer(&blockRenderer2);
     //FooObject foo3("foo3"); foo1.setRenderer(&blockRenderer3);
     //FooObject foo4("foo4"); foo1.setRenderer(&blockRenderer4);
+
+    PlaneRenderer ceilingRenderer(1, "media/wall1.tif");
+    FooObject ceiling("ceiling"); ceiling.setRenderer(&ceilingRenderer);
+    PlaneRenderer floorRenderer(-1, "media/wall1.tif");
+    FooObject floor("floor"); floor.setRenderer(&floorRenderer);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);
 

@@ -11,3 +11,4 @@ depcomp
 .deps
 .libs
 *.o
+*.lo

@@ -4,6 +4,7 @@ open_dungeons_SOURCES = \
 	SlabRenderer.cpp \
 	BlockRenderer.cpp \
 	StepCamera.cpp \
+	PlaneRenderer.cpp \
 	test.cpp
 
 open_dungeons_CXXFLAGS = @SDL_CFLAGS@ -I../../black/black/include 

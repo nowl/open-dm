@@ -50,6 +50,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_open_dungeons_OBJECTS = open_dungeons-SlabRenderer.$(OBJEXT) \
 	open_dungeons-BlockRenderer.$(OBJEXT) \
 	open_dungeons-StepCamera.$(OBJEXT) \
+	open_dungeons-PlaneRenderer.$(OBJEXT) \
 	open_dungeons-test.$(OBJEXT)
 open_dungeons_OBJECTS = $(am_open_dungeons_OBJECTS)
 open_dungeons_LDADD = $(LDADD)
@@ -203,6 +204,7 @@ open_dungeons_SOURCES = \
 	SlabRenderer.cpp \
 	BlockRenderer.cpp \
 	StepCamera.cpp \
+	PlaneRenderer.cpp \
 	test.cpp
 
 open_dungeons_CXXFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -I../../black/black/include 
@@ -295,6 +297,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/open_dungeons-BlockRenderer.Po
+include ./$(DEPDIR)/open_dungeons-PlaneRenderer.Po
 include ./$(DEPDIR)/open_dungeons-SlabRenderer.Po
 include ./$(DEPDIR)/open_dungeons-StepCamera.Po
 include ./$(DEPDIR)/open_dungeons-test.Po
@@ -361,6 +364,20 @@ open_dungeons-StepCamera.obj: StepCamera.cpp
 #	source='StepCamera.cpp' object='open_dungeons-StepCamera.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
+
+open_dungeons-PlaneRenderer.o: PlaneRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-PlaneRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo -c -o open_dungeons-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo $(DEPDIR)/open_dungeons-PlaneRenderer.Po
+#	source='PlaneRenderer.cpp' object='open_dungeons-PlaneRenderer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
+
+open_dungeons-PlaneRenderer.obj: PlaneRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-PlaneRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo -c -o open_dungeons-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo $(DEPDIR)/open_dungeons-PlaneRenderer.Po
+#	source='PlaneRenderer.cpp' object='open_dungeons-PlaneRenderer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
 
 open_dungeons-test.o: test.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-test.o -MD -MP -MF $(DEPDIR)/open_dungeons-test.Tpo -c -o open_dungeons-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
