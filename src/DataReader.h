@@ -3,6 +3,8 @@
 
 #include "Black.h"
 
+#include "StepCamera.h"
+
 class DataReader
 {
 public:
@@ -10,6 +12,7 @@ public:
     ~DataReader();
 
     void buildMap(const Texture& texture);
+    void setCamera(StepCamera& cam);
 
 private:
     std::string filename;
@@ -28,6 +31,7 @@ private:
         
         unsigned int width, height;
         char *tiles;
+        unsigned int start_x, start_y, facing;
     };
 
     Map *map;

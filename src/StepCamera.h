@@ -21,6 +21,8 @@ public:
     virtual void setView();
     virtual void update(GameObject *obj, unsigned int tick);
     virtual bool receive(const Message& message);
+    
+    void setPosition(float x, float y, unsigned int facing);
 
 private:
     

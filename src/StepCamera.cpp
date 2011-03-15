@@ -24,7 +24,7 @@ StepCamera::setView()
 void
 StepCamera::update(GameObject *obj, unsigned int tick)
 {
-    //printf("(%f,%f,%f)\n", x, y, z);
+    printf("(%f,%f,%f)\n", x, y, z);
 
     if(abs(dest_x-x) <= speed)
         x = dest_x;
@@ -44,27 +44,6 @@ StepCamera::update(GameObject *obj, unsigned int tick)
 
     if(facing != dest_facing)
     {
-        /*
-        if(abs(dest_angle - angle) <= turn_speed)
-        {
-            facing = dest_facing;
-            angle = dest_angle;
-        }
-        else
-        {
-            
-            switch(dest_angle)
-            {
-                
-
-            angle += turn_speed * turn_dir;
-            if(angle >= 360)
-                angle -= 360;
-            else if(angle <= -360)
-                angle += 360;
-        }
-        */
-        
         if(angle >= 360)
             angle -= 360;
         if(angle < 0)
@@ -251,4 +230,28 @@ StepCamera::setDest(float x, float z)
 {
     dest_x += x;
     dest_z += z;
+}
+
+void
+StepCamera::setPosition(float x, float y, unsigned int facing)
+{
+    this->x = dest_x = x;
+    this->z = dest_z = y;
+    this->facing = dest_facing = facing;
+
+    switch(facing)
+    {
+    case NORTH:
+        angle = 0;
+        break;
+    case WEST:
+        angle = 270;
+        break;
+    case SOUTH:
+        angle = 180;
+        break;
+    case EAST:
+        angle = 90;
+        break;
+    }
 }

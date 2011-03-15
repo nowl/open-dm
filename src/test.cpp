@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 
     DataReader dr("data/map1.map");
     dr.buildMap(texture);
+    dr.setCamera(camera);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);
 

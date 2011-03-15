@@ -57,6 +57,14 @@ DataReader::processFile()
                 throw runtime_error(str.str());
         }
     }
+
+    result = fscanf(FIN, "%*[\n ]start:%*[ ]%u%*[, ]%u%*[, ]%u", &map->start_x, &map->start_y, &map->facing);
+    if(result != 3)
+    {
+        stringstream str;
+        str << "problem parsing " << filename << " near line " << lineNum;
+        throw runtime_error(str.str());
+    }
 }
 
 class FooObject : public GameObject
@@ -93,4 +101,10 @@ DataReader::buildMap(const Texture& texture)
     PlaneRenderer *floorRenderer = new PlaneRenderer(-1, texture);
     FooObject *floor = new FooObject("floor");
     floor->setRenderer(floorRenderer);
+}
+
+void
+DataReader::setCamera(StepCamera& cam)
+{
+    cam.setPosition(map->start_x, map->start_y, map->facing);
 }
