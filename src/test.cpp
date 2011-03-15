@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	glLoadIdentity();
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
 
-    FileImageTexture texture("media/wall1.tif");
+    FileImageTexture texture("media/wall1.jpg");
 
     DataReader dr("data/map1.map");
     dr.buildMap(texture);

@@ -24,7 +24,7 @@ StepCamera::setView()
 void
 StepCamera::update(GameObject *obj, unsigned int tick)
 {
-    printf("(%f,%f,%f)\n", x, y, z);
+    //printf("position: (%f,%f,%f)\n", x, y, z);
 
     if(abs(dest_x-x) <= speed)
         x = dest_x;
