@@ -1,7 +1,7 @@
 #include "PlaneRenderer.h"
 
-PlaneRenderer::PlaneRenderer(float y, std::string textureFile)
-    : y(y), texture(textureFile.c_str())
+PlaneRenderer::PlaneRenderer(float y, const Texture& texture)
+    : y(y), texture(texture)
 {}
 
 PlaneRenderer::~PlaneRenderer()

@@ -249,6 +249,6 @@ StepCamera::receive(const Message& message)
 void
 StepCamera::setDest(float x, float z)
 {
-    dest_x = this->x + x;
-    dest_z = this->z + z;
+    dest_x += x;
+    dest_z += z;
 }

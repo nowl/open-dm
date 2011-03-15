@@ -7,7 +7,7 @@
 class BlockRenderer : public IRenderable
 {
 public:
-    BlockRenderer(float x, float y, std::string textureFile);
+    BlockRenderer(float x, float y, const Texture& texture);
     virtual ~BlockRenderer();
     
     virtual void Render(GraphicsContext &context, float interpolation, void *data);

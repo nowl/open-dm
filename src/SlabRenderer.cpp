@@ -1,8 +1,9 @@
 #include "SlabRenderer.h"
 
-SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size, std::string textureFile)
+SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size, 
+                           const Texture& texture)
     : x(x), y(y), z(z), size(size), facing_player(facing_player),
-      texture(textureFile.c_str())
+      texture(texture)
 {}
 
 void

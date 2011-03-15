@@ -51,6 +51,8 @@ am_open_dungeons_OBJECTS = open_dungeons-SlabRenderer.$(OBJEXT) \
 	open_dungeons-BlockRenderer.$(OBJEXT) \
 	open_dungeons-StepCamera.$(OBJEXT) \
 	open_dungeons-PlaneRenderer.$(OBJEXT) \
+	open_dungeons-UniqueName.$(OBJEXT) \
+	open_dungeons-DataReader.$(OBJEXT) \
 	open_dungeons-test.$(OBJEXT)
 open_dungeons_OBJECTS = $(am_open_dungeons_OBJECTS)
 open_dungeons_LDADD = $(LDADD)
@@ -205,6 +207,8 @@ open_dungeons_SOURCES = \
 	BlockRenderer.cpp \
 	StepCamera.cpp \
 	PlaneRenderer.cpp \
+	UniqueName.cpp \
+	DataReader.cpp \
 	test.cpp
 
 open_dungeons_CXXFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -I../../black/black/include 
@@ -297,9 +301,11 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/open_dungeons-BlockRenderer.Po
+include ./$(DEPDIR)/open_dungeons-DataReader.Po
 include ./$(DEPDIR)/open_dungeons-PlaneRenderer.Po
 include ./$(DEPDIR)/open_dungeons-SlabRenderer.Po
 include ./$(DEPDIR)/open_dungeons-StepCamera.Po
+include ./$(DEPDIR)/open_dungeons-UniqueName.Po
 include ./$(DEPDIR)/open_dungeons-test.Po
 
 .cpp.o:
@@ -378,6 +384,34 @@ open_dungeons-PlaneRenderer.obj: PlaneRenderer.cpp
 #	source='PlaneRenderer.cpp' object='open_dungeons-PlaneRenderer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
+
+open_dungeons-UniqueName.o: UniqueName.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-UniqueName.o -MD -MP -MF $(DEPDIR)/open_dungeons-UniqueName.Tpo -c -o open_dungeons-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-UniqueName.Tpo $(DEPDIR)/open_dungeons-UniqueName.Po
+#	source='UniqueName.cpp' object='open_dungeons-UniqueName.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
+
+open_dungeons-UniqueName.obj: UniqueName.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-UniqueName.obj -MD -MP -MF $(DEPDIR)/open_dungeons-UniqueName.Tpo -c -o open_dungeons-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-UniqueName.Tpo $(DEPDIR)/open_dungeons-UniqueName.Po
+#	source='UniqueName.cpp' object='open_dungeons-UniqueName.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
+
+open_dungeons-DataReader.o: DataReader.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-DataReader.o -MD -MP -MF $(DEPDIR)/open_dungeons-DataReader.Tpo -c -o open_dungeons-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
+	$(am__mv) $(DEPDIR)/open_dungeons-DataReader.Tpo $(DEPDIR)/open_dungeons-DataReader.Po
+#	source='DataReader.cpp' object='open_dungeons-DataReader.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
+
+open_dungeons-DataReader.obj: DataReader.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-DataReader.obj -MD -MP -MF $(DEPDIR)/open_dungeons-DataReader.Tpo -c -o open_dungeons-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dungeons-DataReader.Tpo $(DEPDIR)/open_dungeons-DataReader.Po
+#	source='DataReader.cpp' object='open_dungeons-DataReader.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
 
 open_dungeons-test.o: test.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-test.o -MD -MP -MF $(DEPDIR)/open_dungeons-test.Tpo -c -o open_dungeons-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp

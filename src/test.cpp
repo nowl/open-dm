@@ -4,25 +4,10 @@
 #include <iostream>
 #include <vector>
 
-#include "BlockRenderer.h"
 #include "StepCamera.h"
-#include "PlaneRenderer.h"
+#include "DataReader.h"
 
 using namespace std;
-
-class FooObject : public GameObject
-{
-public:
-    FooObject(string name) : GameObject(name) {}
-
-    virtual bool receive(const Message& message)
-    {
-    }
-
-    virtual void update(GameObject *obj, unsigned int tick)
-    {    
-    }
-};
 
 int main(int argc, char *argv[])
 {
@@ -42,20 +27,10 @@ int main(int argc, char *argv[])
 	glLoadIdentity();
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
 
-    BlockRenderer blockRenderer1(0, 0, "media/wall1.tif");
-    BlockRenderer blockRenderer2(1, 0, "media/wall1.tif");
-    //BlockRenderer blockRenderer3(2, 0, "media/wall1.tif");
-    //BlockRenderer blockRenderer4(3, 0, "media/wall1.tif");
+    FileImageTexture texture("media/wall1.tif");
 
-    FooObject foo1("foo1"); foo1.setRenderer(&blockRenderer1);
-    FooObject foo2("foo2"); foo2.setRenderer(&blockRenderer2);
-    //FooObject foo3("foo3"); foo1.setRenderer(&blockRenderer3);
-    //FooObject foo4("foo4"); foo1.setRenderer(&blockRenderer4);
-
-    PlaneRenderer ceilingRenderer(1, "media/wall1.tif");
-    FooObject ceiling("ceiling"); ceiling.setRenderer(&ceilingRenderer);
-    PlaneRenderer floorRenderer(-1, "media/wall1.tif");
-    FooObject floor("floor"); floor.setRenderer(&floorRenderer);
+    DataReader dr("data/map1.map");
+    dr.buildMap(texture);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);
 
