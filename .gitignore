@@ -1,13 +1,10 @@
 *~
 autom4te.cache
 *.m4
-config.*
-*.in
-install-sh
+config.h
+config.log
+config.status
 libtool
-ltmain.sh
-missing
-depcomp
 .deps
 .libs
 *.o
