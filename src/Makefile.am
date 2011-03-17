@@ -1,6 +1,6 @@
-bin_PROGRAMS = open-dungeons
+bin_PROGRAMS = open-dm
 
-open_dungeons_SOURCES = \
+open_dm_SOURCES = \
 	SlabRenderer.cpp \
 	BlockRenderer.cpp \
 	StepCamera.cpp \
@@ -9,5 +9,5 @@ open_dungeons_SOURCES = \
 	DataReader.cpp \
 	test.cpp
 
-open_dungeons_CXXFLAGS = @SDL_CFLAGS@ -I../../black/black/include 
-open_dungeons_LDFLAGS = @SDL_LIBS@ @SDL_MIXER_LIBS@ @SDL_IMAGE_LIBS@ @SDL_TTF_LIBS@ @GL_LIBS@ -L../../black/black/src/ -lblack
+open_dm_CXXFLAGS = @SDL_CFLAGS@ -I../../black/black/include 
+open_dm_LDFLAGS = @SDL_LIBS@ @SDL_MIXER_LIBS@ @SDL_IMAGE_LIBS@ @SDL_TTF_LIBS@ @GL_LIBS@ -L../../black/black/src/ -lblack

@@ -1,4 +1,4 @@
-AC_INIT([open-dungeons], [1.0])
+AC_INIT([open-dm], [1.0])
 AM_INIT_AUTOMAKE
 AM_PROG_LIBTOOL
 AC_PROG_CXX

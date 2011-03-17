@@ -16,10 +16,10 @@
 
 
 
-pkgdatadir = $(datadir)/open-dungeons
-pkgincludedir = $(includedir)/open-dungeons
-pkglibdir = $(libdir)/open-dungeons
-pkglibexecdir = $(libexecdir)/open-dungeons
+pkgdatadir = $(datadir)/open-dm
+pkgincludedir = $(includedir)/open-dm
+pkglibdir = $(libdir)/open-dm
+pkglibexecdir = $(libexecdir)/open-dm
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -34,7 +34,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
-bin_PROGRAMS = open-dungeons$(EXEEXT)
+bin_PROGRAMS = open-dm$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -47,18 +47,15 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_open_dungeons_OBJECTS = open_dungeons-SlabRenderer.$(OBJEXT) \
-	open_dungeons-BlockRenderer.$(OBJEXT) \
-	open_dungeons-StepCamera.$(OBJEXT) \
-	open_dungeons-PlaneRenderer.$(OBJEXT) \
-	open_dungeons-UniqueName.$(OBJEXT) \
-	open_dungeons-DataReader.$(OBJEXT) \
-	open_dungeons-test.$(OBJEXT)
-open_dungeons_OBJECTS = $(am_open_dungeons_OBJECTS)
-open_dungeons_LDADD = $(LDADD)
-open_dungeons_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(open_dungeons_CXXFLAGS) \
-	$(CXXFLAGS) $(open_dungeons_LDFLAGS) $(LDFLAGS) -o $@
+am_open_dm_OBJECTS = open_dm-SlabRenderer.$(OBJEXT) \
+	open_dm-BlockRenderer.$(OBJEXT) open_dm-StepCamera.$(OBJEXT) \
+	open_dm-PlaneRenderer.$(OBJEXT) open_dm-UniqueName.$(OBJEXT) \
+	open_dm-DataReader.$(OBJEXT) open_dm-test.$(OBJEXT)
+open_dm_OBJECTS = $(am_open_dm_OBJECTS)
+open_dm_LDADD = $(LDADD)
+open_dm_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CXXLD) $(open_dm_CXXFLAGS) $(CXXFLAGS) \
+	$(open_dm_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -72,17 +69,17 @@ CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(open_dungeons_SOURCES)
-DIST_SOURCES = $(open_dungeons_SOURCES)
+SOURCES = $(open_dm_SOURCES)
+DIST_SOURCES = $(open_dm_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/nowl/dev/open-dungeons/missing --run aclocal-1.11
-AMTAR = ${SHELL} /home/nowl/dev/open-dungeons/missing --run tar
+ACLOCAL = ${SHELL} /home/nowl/dev/open-dm/missing --run aclocal-1.11
+AMTAR = ${SHELL} /home/nowl/dev/open-dm/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/nowl/dev/open-dungeons/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/nowl/dev/open-dungeons/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/nowl/dev/open-dungeons/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/nowl/dev/open-dm/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/nowl/dev/open-dm/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/nowl/dev/open-dm/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -120,7 +117,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/nowl/dev/open-dungeons/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/nowl/dev/open-dm/missing --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -129,11 +126,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = open-dungeons
+PACKAGE = open-dm
 PACKAGE_BUGREPORT = 
-PACKAGE_NAME = open-dungeons
-PACKAGE_STRING = open-dungeons 1.0
-PACKAGE_TARNAME = open-dungeons
+PACKAGE_NAME = open-dm
+PACKAGE_STRING = open-dm 1.0
+PACKAGE_TARNAME = open-dm
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.0
 PATH_SEPARATOR = :
@@ -149,10 +146,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 1.0
-abs_builddir = /home/nowl/dev/open-dungeons/src
-abs_srcdir = /home/nowl/dev/open-dungeons/src
-abs_top_builddir = /home/nowl/dev/open-dungeons
-abs_top_srcdir = /home/nowl/dev/open-dungeons
+abs_builddir = /home/nowl/dev/open-dm/src
+abs_srcdir = /home/nowl/dev/open-dm/src
+abs_top_builddir = /home/nowl/dev/open-dm
+abs_top_srcdir = /home/nowl/dev/open-dm
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -182,7 +179,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/nowl/dev/open-dungeons/install-sh
+install_sh = ${SHELL} /home/nowl/dev/open-dm/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -202,7 +199,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-open_dungeons_SOURCES = \
+open_dm_SOURCES = \
 	SlabRenderer.cpp \
 	BlockRenderer.cpp \
 	StepCamera.cpp \
@@ -211,8 +208,8 @@ open_dungeons_SOURCES = \
 	DataReader.cpp \
 	test.cpp
 
-open_dungeons_CXXFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -I../../black/black/include 
-open_dungeons_LDFLAGS = -L/usr/lib -lSDL -lpthread -lSDL_mixer -lSDL_image -lSDL_ttf -lGL -L../../black/black/src/ -lblack
+open_dm_CXXFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -I../../black/black/include 
+open_dm_LDFLAGS = -L/usr/lib -lSDL -lpthread -lSDL_mixer -lSDL_image -lSDL_ttf -lGL -L../../black/black/src/ -lblack
 all: all-am
 
 .SUFFIXES:
@@ -290,9 +287,9 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-open-dungeons$(EXEEXT): $(open_dungeons_OBJECTS) $(open_dungeons_DEPENDENCIES) 
-	@rm -f open-dungeons$(EXEEXT)
-	$(open_dungeons_LINK) $(open_dungeons_OBJECTS) $(open_dungeons_LDADD) $(LIBS)
+open-dm$(EXEEXT): $(open_dm_OBJECTS) $(open_dm_DEPENDENCIES) 
+	@rm -f open-dm$(EXEEXT)
+	$(open_dm_LINK) $(open_dm_OBJECTS) $(open_dm_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -300,13 +297,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/open_dungeons-BlockRenderer.Po
-include ./$(DEPDIR)/open_dungeons-DataReader.Po
-include ./$(DEPDIR)/open_dungeons-PlaneRenderer.Po
-include ./$(DEPDIR)/open_dungeons-SlabRenderer.Po
-include ./$(DEPDIR)/open_dungeons-StepCamera.Po
-include ./$(DEPDIR)/open_dungeons-UniqueName.Po
-include ./$(DEPDIR)/open_dungeons-test.Po
+include ./$(DEPDIR)/open_dm-BlockRenderer.Po
+include ./$(DEPDIR)/open_dm-DataReader.Po
+include ./$(DEPDIR)/open_dm-PlaneRenderer.Po
+include ./$(DEPDIR)/open_dm-SlabRenderer.Po
+include ./$(DEPDIR)/open_dm-StepCamera.Po
+include ./$(DEPDIR)/open_dm-UniqueName.Po
+include ./$(DEPDIR)/open_dm-test.Po
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -329,103 +326,103 @@ include ./$(DEPDIR)/open_dungeons-test.Po
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(LTCXXCOMPILE) -c -o $@ $<
 
-open_dungeons-SlabRenderer.o: SlabRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-SlabRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-SlabRenderer.Tpo -c -o open_dungeons-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-SlabRenderer.Tpo $(DEPDIR)/open_dungeons-SlabRenderer.Po
-#	source='SlabRenderer.cpp' object='open_dungeons-SlabRenderer.o' libtool=no \
+open_dm-SlabRenderer.o: SlabRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-SlabRenderer.o -MD -MP -MF $(DEPDIR)/open_dm-SlabRenderer.Tpo -c -o open_dm-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dm-SlabRenderer.Tpo $(DEPDIR)/open_dm-SlabRenderer.Po
+#	source='SlabRenderer.cpp' object='open_dm-SlabRenderer.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-SlabRenderer.o `test -f 'SlabRenderer.cpp' || echo '$(srcdir)/'`SlabRenderer.cpp
 
-open_dungeons-SlabRenderer.obj: SlabRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-SlabRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-SlabRenderer.Tpo -c -o open_dungeons-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-SlabRenderer.Tpo $(DEPDIR)/open_dungeons-SlabRenderer.Po
-#	source='SlabRenderer.cpp' object='open_dungeons-SlabRenderer.obj' libtool=no \
+open_dm-SlabRenderer.obj: SlabRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-SlabRenderer.obj -MD -MP -MF $(DEPDIR)/open_dm-SlabRenderer.Tpo -c -o open_dm-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-SlabRenderer.Tpo $(DEPDIR)/open_dm-SlabRenderer.Po
+#	source='SlabRenderer.cpp' object='open_dm-SlabRenderer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-SlabRenderer.obj `if test -f 'SlabRenderer.cpp'; then $(CYGPATH_W) 'SlabRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/SlabRenderer.cpp'; fi`
 
-open_dungeons-BlockRenderer.o: BlockRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-BlockRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-BlockRenderer.Tpo -c -o open_dungeons-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-BlockRenderer.Tpo $(DEPDIR)/open_dungeons-BlockRenderer.Po
-#	source='BlockRenderer.cpp' object='open_dungeons-BlockRenderer.o' libtool=no \
+open_dm-BlockRenderer.o: BlockRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-BlockRenderer.o -MD -MP -MF $(DEPDIR)/open_dm-BlockRenderer.Tpo -c -o open_dm-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dm-BlockRenderer.Tpo $(DEPDIR)/open_dm-BlockRenderer.Po
+#	source='BlockRenderer.cpp' object='open_dm-BlockRenderer.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-BlockRenderer.o `test -f 'BlockRenderer.cpp' || echo '$(srcdir)/'`BlockRenderer.cpp
 
-open_dungeons-BlockRenderer.obj: BlockRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-BlockRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-BlockRenderer.Tpo -c -o open_dungeons-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-BlockRenderer.Tpo $(DEPDIR)/open_dungeons-BlockRenderer.Po
-#	source='BlockRenderer.cpp' object='open_dungeons-BlockRenderer.obj' libtool=no \
+open_dm-BlockRenderer.obj: BlockRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-BlockRenderer.obj -MD -MP -MF $(DEPDIR)/open_dm-BlockRenderer.Tpo -c -o open_dm-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-BlockRenderer.Tpo $(DEPDIR)/open_dm-BlockRenderer.Po
+#	source='BlockRenderer.cpp' object='open_dm-BlockRenderer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-BlockRenderer.obj `if test -f 'BlockRenderer.cpp'; then $(CYGPATH_W) 'BlockRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/BlockRenderer.cpp'; fi`
 
-open_dungeons-StepCamera.o: StepCamera.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-StepCamera.o -MD -MP -MF $(DEPDIR)/open_dungeons-StepCamera.Tpo -c -o open_dungeons-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-StepCamera.Tpo $(DEPDIR)/open_dungeons-StepCamera.Po
-#	source='StepCamera.cpp' object='open_dungeons-StepCamera.o' libtool=no \
+open_dm-StepCamera.o: StepCamera.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-StepCamera.o -MD -MP -MF $(DEPDIR)/open_dm-StepCamera.Tpo -c -o open_dm-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
+	$(am__mv) $(DEPDIR)/open_dm-StepCamera.Tpo $(DEPDIR)/open_dm-StepCamera.Po
+#	source='StepCamera.cpp' object='open_dm-StepCamera.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-StepCamera.o `test -f 'StepCamera.cpp' || echo '$(srcdir)/'`StepCamera.cpp
 
-open_dungeons-StepCamera.obj: StepCamera.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-StepCamera.obj -MD -MP -MF $(DEPDIR)/open_dungeons-StepCamera.Tpo -c -o open_dungeons-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-StepCamera.Tpo $(DEPDIR)/open_dungeons-StepCamera.Po
-#	source='StepCamera.cpp' object='open_dungeons-StepCamera.obj' libtool=no \
+open_dm-StepCamera.obj: StepCamera.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-StepCamera.obj -MD -MP -MF $(DEPDIR)/open_dm-StepCamera.Tpo -c -o open_dm-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-StepCamera.Tpo $(DEPDIR)/open_dm-StepCamera.Po
+#	source='StepCamera.cpp' object='open_dm-StepCamera.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-StepCamera.obj `if test -f 'StepCamera.cpp'; then $(CYGPATH_W) 'StepCamera.cpp'; else $(CYGPATH_W) '$(srcdir)/StepCamera.cpp'; fi`
 
-open_dungeons-PlaneRenderer.o: PlaneRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-PlaneRenderer.o -MD -MP -MF $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo -c -o open_dungeons-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo $(DEPDIR)/open_dungeons-PlaneRenderer.Po
-#	source='PlaneRenderer.cpp' object='open_dungeons-PlaneRenderer.o' libtool=no \
+open_dm-PlaneRenderer.o: PlaneRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-PlaneRenderer.o -MD -MP -MF $(DEPDIR)/open_dm-PlaneRenderer.Tpo -c -o open_dm-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
+	$(am__mv) $(DEPDIR)/open_dm-PlaneRenderer.Tpo $(DEPDIR)/open_dm-PlaneRenderer.Po
+#	source='PlaneRenderer.cpp' object='open_dm-PlaneRenderer.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-PlaneRenderer.o `test -f 'PlaneRenderer.cpp' || echo '$(srcdir)/'`PlaneRenderer.cpp
 
-open_dungeons-PlaneRenderer.obj: PlaneRenderer.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-PlaneRenderer.obj -MD -MP -MF $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo -c -o open_dungeons-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-PlaneRenderer.Tpo $(DEPDIR)/open_dungeons-PlaneRenderer.Po
-#	source='PlaneRenderer.cpp' object='open_dungeons-PlaneRenderer.obj' libtool=no \
+open_dm-PlaneRenderer.obj: PlaneRenderer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-PlaneRenderer.obj -MD -MP -MF $(DEPDIR)/open_dm-PlaneRenderer.Tpo -c -o open_dm-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-PlaneRenderer.Tpo $(DEPDIR)/open_dm-PlaneRenderer.Po
+#	source='PlaneRenderer.cpp' object='open_dm-PlaneRenderer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-PlaneRenderer.obj `if test -f 'PlaneRenderer.cpp'; then $(CYGPATH_W) 'PlaneRenderer.cpp'; else $(CYGPATH_W) '$(srcdir)/PlaneRenderer.cpp'; fi`
 
-open_dungeons-UniqueName.o: UniqueName.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-UniqueName.o -MD -MP -MF $(DEPDIR)/open_dungeons-UniqueName.Tpo -c -o open_dungeons-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-UniqueName.Tpo $(DEPDIR)/open_dungeons-UniqueName.Po
-#	source='UniqueName.cpp' object='open_dungeons-UniqueName.o' libtool=no \
+open_dm-UniqueName.o: UniqueName.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-UniqueName.o -MD -MP -MF $(DEPDIR)/open_dm-UniqueName.Tpo -c -o open_dm-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
+	$(am__mv) $(DEPDIR)/open_dm-UniqueName.Tpo $(DEPDIR)/open_dm-UniqueName.Po
+#	source='UniqueName.cpp' object='open_dm-UniqueName.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-UniqueName.o `test -f 'UniqueName.cpp' || echo '$(srcdir)/'`UniqueName.cpp
 
-open_dungeons-UniqueName.obj: UniqueName.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-UniqueName.obj -MD -MP -MF $(DEPDIR)/open_dungeons-UniqueName.Tpo -c -o open_dungeons-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-UniqueName.Tpo $(DEPDIR)/open_dungeons-UniqueName.Po
-#	source='UniqueName.cpp' object='open_dungeons-UniqueName.obj' libtool=no \
+open_dm-UniqueName.obj: UniqueName.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-UniqueName.obj -MD -MP -MF $(DEPDIR)/open_dm-UniqueName.Tpo -c -o open_dm-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-UniqueName.Tpo $(DEPDIR)/open_dm-UniqueName.Po
+#	source='UniqueName.cpp' object='open_dm-UniqueName.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-UniqueName.obj `if test -f 'UniqueName.cpp'; then $(CYGPATH_W) 'UniqueName.cpp'; else $(CYGPATH_W) '$(srcdir)/UniqueName.cpp'; fi`
 
-open_dungeons-DataReader.o: DataReader.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-DataReader.o -MD -MP -MF $(DEPDIR)/open_dungeons-DataReader.Tpo -c -o open_dungeons-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-DataReader.Tpo $(DEPDIR)/open_dungeons-DataReader.Po
-#	source='DataReader.cpp' object='open_dungeons-DataReader.o' libtool=no \
+open_dm-DataReader.o: DataReader.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-DataReader.o -MD -MP -MF $(DEPDIR)/open_dm-DataReader.Tpo -c -o open_dm-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
+	$(am__mv) $(DEPDIR)/open_dm-DataReader.Tpo $(DEPDIR)/open_dm-DataReader.Po
+#	source='DataReader.cpp' object='open_dm-DataReader.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-DataReader.o `test -f 'DataReader.cpp' || echo '$(srcdir)/'`DataReader.cpp
 
-open_dungeons-DataReader.obj: DataReader.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-DataReader.obj -MD -MP -MF $(DEPDIR)/open_dungeons-DataReader.Tpo -c -o open_dungeons-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-DataReader.Tpo $(DEPDIR)/open_dungeons-DataReader.Po
-#	source='DataReader.cpp' object='open_dungeons-DataReader.obj' libtool=no \
+open_dm-DataReader.obj: DataReader.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-DataReader.obj -MD -MP -MF $(DEPDIR)/open_dm-DataReader.Tpo -c -o open_dm-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-DataReader.Tpo $(DEPDIR)/open_dm-DataReader.Po
+#	source='DataReader.cpp' object='open_dm-DataReader.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-DataReader.obj `if test -f 'DataReader.cpp'; then $(CYGPATH_W) 'DataReader.cpp'; else $(CYGPATH_W) '$(srcdir)/DataReader.cpp'; fi`
 
-open_dungeons-test.o: test.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-test.o -MD -MP -MF $(DEPDIR)/open_dungeons-test.Tpo -c -o open_dungeons-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
-	$(am__mv) $(DEPDIR)/open_dungeons-test.Tpo $(DEPDIR)/open_dungeons-test.Po
-#	source='test.cpp' object='open_dungeons-test.o' libtool=no \
+open_dm-test.o: test.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-test.o -MD -MP -MF $(DEPDIR)/open_dm-test.Tpo -c -o open_dm-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
+	$(am__mv) $(DEPDIR)/open_dm-test.Tpo $(DEPDIR)/open_dm-test.Po
+#	source='test.cpp' object='open_dm-test.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
 
-open_dungeons-test.obj: test.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -MT open_dungeons-test.obj -MD -MP -MF $(DEPDIR)/open_dungeons-test.Tpo -c -o open_dungeons-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
-	$(am__mv) $(DEPDIR)/open_dungeons-test.Tpo $(DEPDIR)/open_dungeons-test.Po
-#	source='test.cpp' object='open_dungeons-test.obj' libtool=no \
+open_dm-test.obj: test.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -MT open_dm-test.obj -MD -MP -MF $(DEPDIR)/open_dm-test.Tpo -c -o open_dm-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
+	$(am__mv) $(DEPDIR)/open_dm-test.Tpo $(DEPDIR)/open_dm-test.Po
+#	source='test.cpp' object='open_dm-test.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dungeons_CXXFLAGS) $(CXXFLAGS) -c -o open_dungeons-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(open_dm_CXXFLAGS) $(CXXFLAGS) -c -o open_dm-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
