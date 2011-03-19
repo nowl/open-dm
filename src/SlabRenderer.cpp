@@ -2,10 +2,10 @@
 
 #include "SlabRenderer.h"
 
-SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size, 
-                           const Texture& texture)
-    : x(x), y(y), z(z), size(size), facing_player(facing_player),
-      texture(texture)
+SlabRenderer::SlabRenderer(float x, float y, float z, SlabType slabType, float size, 
+                           Texture* texture)
+    : x(x), y(y), z(z), size(size),
+      texture(texture), slabType(slabType)
 {}
 
 static float mDistance(float x1, float y1, float x2, float y2)
@@ -16,19 +16,27 @@ static float mDistance(float x1, float y1, float x2, float y2)
 void
 SlabRenderer::Render(GraphicsContext &context, float interpolation, void *data)
 {
-    texture.bind();
+    if(texture)
+        texture->bind();
 
     glTranslatef(x, y, z);
     glScalef(size, size, size);
 
-    if(!facing_player)
+    switch(slabType)
+    {
+    case SIDE:
         glRotatef(90, 0, 1, 0);
+        break;
+    case PARALLEL:
+        glRotatef(90, 1, 0, 0);
+        break;
+    }
 
     Camera *camera = BlackEngine::get()->getCamera();
     Camera::Point p = camera->getPosition();
 
     float dist = mDistance(-x, -z, p.x, p.z);
-    float val = -1/6.0 * dist + 1;
+    float val = -1/5.0 * dist + 1;
     if(val < 0)
         val = 0;
     
@@ -44,5 +52,6 @@ SlabRenderer::Render(GraphicsContext &context, float interpolation, void *data)
       glVertex3f(1, 0, 0);
     glEnd();
     
-    texture.unbind();
+    if(texture)
+        texture->unbind();
 }

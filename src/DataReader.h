@@ -11,7 +11,7 @@ public:
     DataReader(const std::string& filename);
     ~DataReader();
 
-    void buildMap(const Texture& texture);
+    void buildMap(Texture* wallTexture, Texture *floorTexture);
     void setCamera(StepCamera& cam);
 
 private:

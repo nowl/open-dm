@@ -7,7 +7,7 @@
 class BlockRenderer : public IRenderable
 {
 public:
-    BlockRenderer(float x, float y, const Texture& texture);
+    BlockRenderer(float x, float y, Texture* texture);
     virtual ~BlockRenderer();
     
     virtual void Render(GraphicsContext &context, float interpolation, void *data);

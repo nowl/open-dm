@@ -29,10 +29,11 @@ int main(int argc, char *argv[])
 	glLoadIdentity();
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
 
-    FileImageTexture texture("media/wall1.jpg");
+    FileImageTexture wallTexture("media/wall1.jpg");
+    FileImageTexture floorTexture("media/floor.jpg");
 
     DataReader dr("data/map1.map");
-    dr.buildMap(texture);
+    dr.buildMap(&wallTexture, &floorTexture);
     dr.setCamera(camera);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);

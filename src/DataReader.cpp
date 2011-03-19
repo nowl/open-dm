@@ -82,25 +82,27 @@ public:
 };
 
 void
-DataReader::buildMap(const Texture& texture)
+DataReader::buildMap(Texture* wallTexture, Texture *floorTexture)
 {    
     for(int x=0; x<map->width; x++)
         for(int y=0; y<map->height; y++)
         {
+            FooObject *foo;
+            
+            SlabRenderer *ceilingRenderer = new SlabRenderer(-x-0.5, -0.5, -y-0.5, SlabRenderer::PARALLEL, 1, floorTexture);
+            foo = new FooObject(UniqueName("ceiling").getName());
+            foo->setRenderer(ceilingRenderer);
+            SlabRenderer *floorRenderer = new SlabRenderer(-x-0.5, 0.5, -y-0.5, SlabRenderer::PARALLEL, 1, floorTexture);
+            foo = new FooObject(UniqueName("floor").getName());
+            foo->setRenderer(floorRenderer);
+
             if(map->tiles[y * map->width + x] == 0)
             {
-                BlockRenderer *blockRenderer = new BlockRenderer(x, y, texture);
-                FooObject *foo = new FooObject(UniqueName("slab").getName());
+                BlockRenderer *blockRenderer = new BlockRenderer(x, y, wallTexture);
+                foo = new FooObject(UniqueName("slab").getName());
                 foo->setRenderer(blockRenderer);
             }
         }
-
-    PlaneRenderer *ceilingRenderer = new PlaneRenderer(1, texture);
-    FooObject *ceiling = new FooObject("ceiling");
-    ceiling->setRenderer(ceilingRenderer);
-    PlaneRenderer *floorRenderer = new PlaneRenderer(-1, texture);
-    FooObject *floor = new FooObject("floor");
-    floor->setRenderer(floorRenderer);
 }
 
 void

@@ -6,14 +6,22 @@
 class SlabRenderer : public IRenderable
 {
 public:
-    SlabRenderer(float x, float y, float z, bool facing_player, float size, 
-                 const Texture& texture);
+
+    enum SlabType
+    {
+        FRONT,
+        SIDE,
+        PARALLEL
+    };
+
+    SlabRenderer(float x, float y, float z, SlabType slabType, float size, 
+                 Texture* texture);
     
     virtual void Render(GraphicsContext &context, float interpolation, void *data);
     
     float x, y, z, size;
-    const Texture& texture;
-    bool facing_player;
+    Texture* texture;
+    SlabType slabType;
 };
 
 #endif // __SLABRENDERER_H__
