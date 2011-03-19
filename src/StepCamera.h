@@ -19,6 +19,7 @@ public:
     virtual ~StepCamera();
 
     virtual void setView();
+    virtual Point getPosition();
     virtual void update(GameObject *obj, unsigned int tick);
     virtual bool receive(const Message& message);
     

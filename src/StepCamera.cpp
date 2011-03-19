@@ -21,6 +21,13 @@ StepCamera::setView()
     glTranslatef(x, y, z);
 }
 
+Camera::Point
+StepCamera::getPosition()
+{
+    Point p = {x, y, z};
+    return p;
+}
+
 void
 StepCamera::update(GameObject *obj, unsigned int tick)
 {

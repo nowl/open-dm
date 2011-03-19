@@ -15,7 +15,7 @@ PlaneRenderer::Render(GraphicsContext &context, float interpolation, void *data)
     glTranslatef(0, y, 0);
 
     glBegin(GL_QUADS);
-      //glColor3f(1,1,1);
+      glColor3f(1,1,1);
       glTexCoord2f(0, 0);
       glVertex3f(1000, y, 10000);
       glTexCoord2f(0, 1);

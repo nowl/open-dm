@@ -23,7 +23,9 @@ int main(int argc, char *argv[])
     StepCamera camera("step-camera", 0, 0, 0);
     engine->setCamera(&camera);
 
-	glMatrixMode(GL_MODELVIEW);
+    glDisable(GL_LIGHTING);
+    
+    glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
 

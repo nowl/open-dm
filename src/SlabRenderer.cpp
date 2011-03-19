@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "SlabRenderer.h"
 
 SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float size, 
@@ -5,6 +7,11 @@ SlabRenderer::SlabRenderer(float x, float y, float z, bool facing_player, float 
     : x(x), y(y), z(z), size(size), facing_player(facing_player),
       texture(texture)
 {}
+
+static float mDistance(float x1, float y1, float x2, float y2)
+{
+    return fabs(x1-x2) + fabs(y1-y2);
+}
 
 void
 SlabRenderer::Render(GraphicsContext &context, float interpolation, void *data)
@@ -16,9 +23,17 @@ SlabRenderer::Render(GraphicsContext &context, float interpolation, void *data)
 
     if(!facing_player)
         glRotatef(90, 0, 1, 0);
+
+    Camera *camera = BlackEngine::get()->getCamera();
+    Camera::Point p = camera->getPosition();
+
+    float dist = mDistance(-x, -z, p.x, p.z);
+    float val = -1/6.0 * dist + 1;
+    if(val < 0)
+        val = 0;
     
     glBegin(GL_QUADS);
-      glColor3f(1,1,1);
+      glColor3f(val, val, val);
       glTexCoord2f(0, 0);
       glVertex3f(0, 0, 0);
       glTexCoord2f(0, 1);
