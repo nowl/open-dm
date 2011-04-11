@@ -4,8 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "StepCamera.h"
-#include "DataReader.h"
+#include "OpenDM.h"
 
 using namespace std;
 
@@ -17,14 +16,15 @@ int main(int argc, char *argv[])
     engine->switchGameState("play-state");
     engine->getGraphicsContext()->setViewport(0, 0, 1280, 1024);
     engine->setKeyRepeat(500, 50);
+    engine->setFieldOfVision(FIELD_OF_VISION);
 
-    engine->getGraphicsContext()->setPerspectiveView(120, 1, 0.1, 100);
+    engine->getGraphicsContext()->setPerspectiveView(FIELD_OF_VISION, 1, 0.1, 100);
 
     StepCamera camera("step-camera", 0, 0, 0);
     engine->setCamera(&camera);
 
     glDisable(GL_LIGHTING);
-    
+
     glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(0,0,0, 0, 2, 50, 0, 1.0, 0);
@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
     DataReader dr("data/map1.map");
     dr.buildMap(&wallTexture, &floorTexture);
     dr.setCamera(camera);
+
+    StateManager stateManager(&dr);
+    camera.setStateManager(&stateManager);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);
 

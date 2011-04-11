@@ -14,21 +14,23 @@ public:
     void buildMap(Texture* wallTexture, Texture *floorTexture);
     void setCamera(StepCamera& cam);
 
+    char getMapElement(int x, int y);
+
 private:
     std::string filename;
     void processFile();
-    
+
     struct Map
     {
         Map(unsigned int width, unsigned int height)
             : width(width), height(height), tiles(new char[width*height])
         {}
-        
+
         ~Map()
         {
             delete [] tiles;
         }
-        
+
         unsigned int width, height;
         char *tiles;
         unsigned int start_x, start_y, facing;

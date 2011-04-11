@@ -1,9 +1,14 @@
-#include "StepCamera.h"
+#include "OpenDM.h"
+
+// TODO: remove (testing)
+#include <vector>
+#include <string>
+using namespace std;
 
 StepCamera::StepCamera(std::string name, float x, float y, float z)
-    : Camera(name), x(x), y(y), z(z), 
+    : Camera(name), x(x), y(y), z(z),
       dest_x(x), dest_y(y), dest_z(z),
-      speed(0.1), 
+      speed(0.1),
       facing(NORTH), dest_facing(NORTH),
       angle(0), turn_speed(90/10*2)
 {}
@@ -15,7 +20,7 @@ void
 StepCamera::setView()
 {
     // adjust for facing
-    glRotatef(angle, 0, 1, 0);    
+    glRotatef(angle, 0, 1, 0);
 
 
     glTranslatef(x, y, z);
@@ -63,7 +68,7 @@ StepCamera::update(GameObject *obj, unsigned int tick)
         case 0x1:
             // WEST going on NORTH
             dest_angle = 0;
-            angle += turn_speed;            
+            angle += turn_speed;
             break;
         case 0x3:
             // EAST going on NORTH
@@ -107,7 +112,7 @@ StepCamera::update(GameObject *obj, unsigned int tick)
             facing = dest_facing;
             angle = dest_angle;
         }
-    }        
+    }
 }
 
 bool
@@ -123,7 +128,7 @@ StepCamera::receive(const Message& message)
             case SDLK_ESCAPE:
                 BlackEngine::get()->IsRunning = false;
                 return true;
-            case SDLK_KP6:
+            case SDLK_e:
                 switch(facing)
                 {
                 case NORTH:
@@ -140,41 +145,41 @@ StepCamera::receive(const Message& message)
                     break;
                 }
                 return true;
-            case SDLK_KP5:
+            case SDLK_w:
                 switch(facing)
                 {
                 case NORTH:
-                    setDest(0, 1);
+                    attemptMove(0, 1);
                     break;
                 case WEST:
-                    setDest(1, 0);
+                    attemptMove(1, 0);
                     break;
                 case SOUTH:
-                    setDest(0, -1);
+                    attemptMove(0, -1);
                     break;
                 case EAST:
-                    setDest(-1, 0);
+                    attemptMove(-1, 0);
                     break;
                 }
                 return true;
-            case SDLK_KP2:
+            case SDLK_s:
                 switch(facing)
                 {
                 case NORTH:
-                    setDest(0, -1);
+                    attemptMove(0, -1);
                     break;
                 case WEST:
-                    setDest(-1, 0);
+                    attemptMove(-1, 0);
                     break;
                 case SOUTH:
-                    setDest(0, 1);
+                    attemptMove(0, 1);
                     break;
                 case EAST:
-                    setDest(1, 0);
+                    attemptMove(1, 0);
                     break;
                 }
                 return true;
-            case SDLK_KP4:
+            case SDLK_q:
                 switch(facing)
                 {
                 case NORTH:
@@ -191,41 +196,46 @@ StepCamera::receive(const Message& message)
                     break;
                 }
                 return true;
-            case SDLK_KP1:
+            case SDLK_a:
                 switch(facing)
                 {
                 case NORTH:
-                    setDest(1, 0);
+                    attemptMove(1, 0);
                     break;
                 case WEST:
-                    setDest(0, -1);
+                    attemptMove(0, -1);
                     break;
                 case SOUTH:
-                    setDest(-1, 0);
+                    attemptMove(-1, 0);
                     break;
                 case EAST:
-                    setDest(0, 1);
+                    attemptMove(0, 1);
                     break;
                 }
                 return true;
-            case SDLK_KP3:
+            case SDLK_d:
                 switch(facing)
                 {
                 case NORTH:
-                    setDest(-1, 0);
+                    attemptMove(-1, 0);
                     break;
                 case WEST:
-                    setDest(0, 1);
+                    attemptMove(0, 1);
                     break;
                 case SOUTH:
-                    setDest(1, 0);
+                    attemptMove(1, 0);
                     break;
                 case EAST:
-                    setDest(0, -1);
+                    attemptMove(0, -1);
                     break;
                 }
                 return true;
             }
+        }
+        else if(event->type == SDL_MOUSEBUTTONDOWN)
+        {
+            vector<string> picks;
+            BlackEngine::get()->getPickManager()->getPicks(event->button.x, event->button.y, picks);
         }
     }
 
@@ -237,6 +247,13 @@ StepCamera::setDest(float x, float z)
 {
     dest_x += x;
     dest_z += z;
+}
+
+void
+StepCamera::attemptMove(int x, int y)
+{
+    if(StateMan->isEnterable(dest_x + x, dest_z + y))
+        setDest(x, y);
 }
 
 void
@@ -261,4 +278,10 @@ StepCamera::setPosition(float x, float y, unsigned int facing)
         angle = 90;
         break;
     }
+}
+
+void
+StepCamera::setStateManager(StateManager *sm)
+{
+    StateMan = sm;
 }

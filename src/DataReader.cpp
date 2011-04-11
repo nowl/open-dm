@@ -44,7 +44,7 @@ DataReader::processFile()
         str << "problem parsing " << filename << " near line " << lineNum;
         throw runtime_error(str.str());
     }
-    
+
     map = new Map(width, height);
 
     for(int i=0; i<width*height; i++)
@@ -77,18 +77,18 @@ public:
     }
 
     virtual void update(GameObject *obj, unsigned int tick)
-    {    
+    {
     }
 };
 
 void
 DataReader::buildMap(Texture* wallTexture, Texture *floorTexture)
-{    
+{
     for(int x=0; x<map->width; x++)
         for(int y=0; y<map->height; y++)
         {
             FooObject *foo;
-            
+
             SlabRenderer *ceilingRenderer = new SlabRenderer(-x-0.5, -0.5, -y-0.5, SlabRenderer::PARALLEL, 1, floorTexture);
             foo = new FooObject(UniqueName("ceiling").getName());
             foo->setRenderer(ceilingRenderer);
@@ -109,4 +109,10 @@ void
 DataReader::setCamera(StepCamera& cam)
 {
     cam.setPosition(map->start_x, map->start_y, map->facing);
+}
+
+char
+DataReader::getMapElement(int x, int y)
+{
+    return map->tiles[y * map->width + x];
 }

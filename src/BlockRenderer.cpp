@@ -20,6 +20,7 @@ BlockRenderer::Render(GraphicsContext &context, float interpolation, void *data)
 {
     for(int i=0; i<4; i++)
     {
+        glLoadName(7);
         glPushMatrix();
         slab[i]->Render(context, interpolation, data);
         glPopMatrix();
