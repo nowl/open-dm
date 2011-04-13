@@ -51,6 +51,7 @@
 		<Unit filename="src/OpenDM.h" />
 		<Unit filename="src/PlaneRenderer.cpp" />
 		<Unit filename="src/SlabRenderer.cpp" />
+		<Unit filename="src/SlabRenderer.h" />
 		<Unit filename="src/StateManager.cpp" />
 		<Unit filename="src/StateManager.h" />
 		<Unit filename="src/StepCamera.cpp" />

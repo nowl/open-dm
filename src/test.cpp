@@ -8,6 +8,41 @@
 
 using namespace std;
 
+void preRenderHook(void)
+{
+    BlackEngine *engine;
+    engine->getGraphicsContext()->setPerspectiveView(FIELD_OF_VISION, 1, 0.1, 100);
+}
+
+class HUDObject : public GameObject
+{
+public:
+    HUDObject(string name) : GameObject(name)
+    {
+        setPerspectiveType("hud");
+    }
+
+    virtual bool receive(const Message& message)
+    {
+    }
+
+    virtual void update(GameObject *obj, unsigned int tick)
+    {
+    }
+
+    virtual void render(GraphicsContext &context, float interpolation)
+    {
+        glLoadName(1);
+        glBegin(GL_QUADS);
+          glColor3f(1.0, 0, 0);
+          glVertex3f(0, 0, 0);
+          glVertex3f(0, 0.1, 0);
+          glVertex3f(0.1, 0.1, 0);
+          glVertex3f(0.1, 0, 0);
+        glEnd();
+    }
+};
+
 int main(int argc, char *argv[])
 {
     BlackEngine *engine = BlackEngine::get();
@@ -17,8 +52,6 @@ int main(int argc, char *argv[])
     engine->getGraphicsContext()->setViewport(0, 0, 1280, 1024);
     engine->setKeyRepeat(500, 50);
     engine->setFieldOfVision(FIELD_OF_VISION);
-
-    engine->getGraphicsContext()->setPerspectiveView(FIELD_OF_VISION, 1, 0.1, 100);
 
     StepCamera camera("step-camera", 0, 0, 0);
     engine->setCamera(&camera);
@@ -40,6 +73,8 @@ int main(int argc, char *argv[])
     camera.setStateManager(&stateManager);
 
     engine->getActiveGameState()->registerBroadcastReceiver("sdl-event", &camera);
+
+    HUDObject *hud = new HUDObject("hud");
 
     engine->mainloop();
 

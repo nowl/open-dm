@@ -17,13 +17,42 @@ StepCamera::~StepCamera()
 {}
 
 void
-StepCamera::setView()
+StepCamera::setView(GameObject *obj, ObjectManager::RenderType type)
 {
-    // adjust for facing
-    glRotatef(angle, 0, 1, 0);
+    if(obj->getPerspectiveType() == "world")
+    {
+        glMatrixMode(GL_MODELVIEW);
 
+        // adjust for facing
+        glRotatef(angle, 0, 1, 0);
 
-    glTranslatef(x, y, z);
+        glTranslatef(x, y, z);
+    }
+}
+
+void
+StepCamera::setPerspectiveView(GameObject *obj, ObjectManager::RenderType type)
+{
+    BlackEngine *engine;
+
+    switch(type)
+    {
+    case ObjectManager::DRAW:
+        if(obj->getPerspectiveType() == "world")
+            engine->getGraphicsContext()->setPerspectiveView(FIELD_OF_VISION, 1, 0.1, 100);
+        else if(obj->getPerspectiveType() == "hud")
+            engine->getGraphicsContext()->setOrthoView(Rect(-1, 1, -1, 1));
+        break;
+    case ObjectManager::PICKING:
+        if(obj->getPerspectiveType() == "world")
+            gluPerspective(BlackEngine::get()->getFieldOfVision(), 1.0, 0.0001, 1000.0);
+        else if(obj->getPerspectiveType() == "hud")
+            glOrtho(-1, 1, -1, 1, -1.0f, 1.0f);
+        break;
+    default:
+        printf("unknown render type\n");
+        break;
+    }
 }
 
 Camera::Point

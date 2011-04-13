@@ -70,7 +70,10 @@ DataReader::processFile()
 class FooObject : public GameObject
 {
 public:
-    FooObject(string name) : GameObject(name) {}
+    FooObject(string name) : GameObject(name)
+    {
+        setPerspectiveType("world");
+    }
 
     virtual bool receive(const Message& message)
     {

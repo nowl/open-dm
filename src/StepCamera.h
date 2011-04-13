@@ -20,7 +20,8 @@ public:
     StepCamera(std::string name, float x, float y, float z);
     virtual ~StepCamera();
 
-    virtual void setView();
+    virtual void setView(GameObject *obj, ObjectManager::RenderType type);
+    virtual void setPerspectiveView(GameObject *obj, ObjectManager::RenderType type);
     virtual Point getPosition();
     virtual void update(GameObject *obj, unsigned int tick);
     virtual bool receive(const Message& message);
