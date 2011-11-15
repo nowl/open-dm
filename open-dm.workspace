@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_workspace_file>
-	<Workspace title="Workspace">
-		<Project filename="../black/black.cbp" />
-		<Project filename="open-dm.cbp" active="1">
-			<Depends filename="../black/black.cbp" />
-		</Project>
-	</Workspace>
-</CodeBlocks_workspace_file>

@@ -1,3 +1,0 @@
-Build instructions:
-
-Git clone the Black repository alongside the open-dungeons repo and build that first. Then the regular ./configure and make should work.
